@@ -1,2 +1,2 @@
 # AtCoder_Problems
-AtCoderの勉強用
+AtCoderの勉強用リポジトリ
