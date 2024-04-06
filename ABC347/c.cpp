@@ -1,27 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define rep(i,n) for (int i = 0; i < (n); ++i)
+#define INF 1010000000
+using ll = long long;
 
-int main() {
-    int n, a, b;
-    cin >> n >> a >> b;
-    // 1週間
-    int w = a+b;
-    vector<int> d(n);
+int main(){
+    ll n;
+    cin >> n;
+    ll a[n], c[n];
+    rep(i, n) cin >> a[i] >> c[i];
+    map<ll, ll> mp;
     rep(i, n) {
-        cin >> d[i];
-        d[i] %= w;
+        if (mp[c[i]] == 0) mp[c[i]] = a[i];
+        if (mp[c[i]] > a[i]) mp[c[i]] = a[i];
     }
-    sort(d.begin(), d.end());
-    // 2週間
-    rep(i, n) d.push_back(d[i]+w);
-
-    rep(i, d.size()-1) {
-        if (d[i+1]-d[i] >= b+1) {
-            cout << "Yes" << endl;
-            return 0;
-        }
+    ll max = 0;
+    rep(i, n) {
+        if (max < mp[c[i]]) max = mp[c[i]];
     }
-    cout << "No" << endl;
+    cout << max << endl;
     return 0;
 }
