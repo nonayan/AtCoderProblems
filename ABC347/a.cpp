@@ -1,24 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define rep(i,n) for (int i = 0; i < (n); ++i)
-using ll = long long;
+#define rep(i,n) for (int i = 1; i <= (n); ++i)
 #define INF 1010000000
 
 int main(){
-    int n, k;
-    cin >> n >> k;
-    vector<int> an;
-    rep(i, n) {
-        int a;
-        cin >> a;
-        if (a%k == 0) an.push_back(a/k);
+    int x;
+    cin >> x;
+    rep(i, x) {
+        if (i%3 == 0) cout << "x";
+        else cout << "o";
     }
-    sort(an.begin(), an.end());
-    rep(i, an.size()) {
-        if (i == an.size()-1) {
-            cout << an[i] << endl;
-        } else {
-            cout << an[i] << " ";
-        }
-    }
+    cout << endl;
 }
